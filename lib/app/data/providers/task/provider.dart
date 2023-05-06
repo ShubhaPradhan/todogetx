@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:taskmanager/app/core/utils/keys.dart';
-import 'package:taskmanager/app/data/services/storage/services.dart';
+import '/app/core/utils/keys.dart';
+import '/app/data/services/storage/services.dart';
 
 import '../../models/task.dart';
 

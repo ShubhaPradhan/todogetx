@@ -13,18 +13,18 @@ class Task extends Equatable {
     this.todos,
   });
 
-  // Task copyWith({
-  //   String? title,
-  //   int? icon,
-  //   String? color,
-  //   List<dynamic>? todos,
-  // }) =>
-  //     Task(
-  //       title: title ?? this.title,
-  //       icon: icon ?? this.icon,
-  //       color: color ?? this.color,
-  //       todos: todos ?? this.todos,
-  //     );
+  Task copyWith({
+    String? title,
+    int? icon,
+    String? color,
+    List<dynamic>? todos,
+  }) =>
+      Task(
+        title: title ?? this.title,
+        icon: icon ?? this.icon,
+        color: color ?? this.color,
+        todos: todos ?? this.todos,
+      );
 
   factory Task.fromJson(Map<String, dynamic> json) => Task(
         title: json["title"],
