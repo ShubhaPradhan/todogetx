@@ -21,6 +21,7 @@ class TaskCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         homeController.changeTask(task);
+        homeController.changeTodos(task.todos ?? []);
         Get.to(() => DetailPage());
       },
       child: Container(
@@ -34,16 +35,18 @@ class TaskCard extends StatelessWidget {
               color: Colors.grey[300]!,
               blurRadius: 7,
               offset: const Offset(0, 7),
-            )
+            ),
           ],
-          borderRadius: BorderRadius.circular(5.0.wp),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             StepProgressIndicator(
-              totalSteps: 100,
-              currentStep: 80,
+              totalSteps:
+                  homeController.isTodosEmpty(task) ? 1 : task.todos!.length,
+              currentStep: homeController.isTodosEmpty(task)
+                  ? 0
+                  : homeController.getDoneTodo(task),
               size: 5,
               padding: 0,
               roundedEdges: const Radius.circular(20),
