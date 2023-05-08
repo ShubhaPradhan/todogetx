@@ -34,8 +34,9 @@ class DoneList extends StatelessWidget {
                     (element) => Dismissible(
                       key: ObjectKey(element),
                       direction: DismissDirection.endToStart,
-                      onDismissed: (_) =>
-                          homeController.deleteDoneTodo(element),
+                      onDismissed: (_) {
+                        homeController.deleteDoneTodo(element);
+                      },
                       background: Container(
                         color: Colors.red.withOpacity(0.8),
                         alignment: Alignment.centerRight,

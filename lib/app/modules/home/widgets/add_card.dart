@@ -130,6 +130,7 @@ class AddCart extends StatelessWidget {
             child: Icon(
               Icons.add,
               color: Colors.grey[400],
+              size: 34.0.sp,
             ),
           ),
         ),

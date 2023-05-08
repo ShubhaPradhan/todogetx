@@ -50,6 +50,20 @@ class DoingList extends StatelessWidget {
                                 value: element['done'],
                                 onChanged: (value) {
                                   homeControler.doneTodo(element['title']);
+                                  // show undo snackbar
+                                  Get.snackbar(
+                                    'Done',
+                                    'Task marked as done',
+                                    snackPosition: SnackPosition.BOTTOM,
+                                    duration: const Duration(seconds: 2),
+                                    mainButton: TextButton(
+                                      onPressed: () {
+                                        homeControler
+                                            .undoDoneTodo(element['title']);
+                                      },
+                                      child: const Text('Undo'),
+                                    ),
+                                  );
                                 },
                               ),
                             ),

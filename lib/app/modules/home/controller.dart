@@ -154,6 +154,23 @@ class HomeController extends GetxController {
     doneTodos.refresh();
   }
 
+  void undoDoneTodo(String title) {
+    var doneTodo = {
+      'title': title,
+      'done': true,
+    };
+    int index = doneTodos
+        .indexWhere((element) => mapEquals<String, dynamic>(doneTodo, element));
+    doneTodos.removeAt(index);
+    var doingTodo = {
+      'title': title,
+      'done': false,
+    };
+    doingTodos.add(doingTodo);
+    doingTodos.refresh();
+    doneTodos.refresh();
+  }
+
   void deleteDoneTodo(dynamic doneTodo) {
     debugPrint('doneTodo: $doneTodo');
     int index = doneTodos.indexOf(doneTodo);
